@@ -1,0 +1,74 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "synapse",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "dev"
+      ],
+      "port": 5173,
+      "url": "http://127.0.0.1:5173"
+    },
+    {
+      "name": "synapse-server",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--filter",
+        "@synapse/server",
+        "dev"
+      ],
+      "port": 4317,
+      "url": "http://127.0.0.1:4317"
+    },
+    {
+      "name": "synapse-web",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--filter",
+        "@synapse/web",
+        "exec",
+        "vite",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "5174",
+        "--strictPort"
+      ],
+      "port": 5174,
+      "url": "http://127.0.0.1:5174"
+    },
+    {
+      "name": "synapse-server-alt",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "SYNAPSE_PORT=4320",
+        "pnpm",
+        "--filter",
+        "@synapse/server",
+        "dev"
+      ],
+      "port": 4320,
+      "url": "http://127.0.0.1:4320"
+    },
+    {
+      "name": "synapse-web-alt",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "SYNAPSE_PORT=4320",
+        "pnpm",
+        "--filter",
+        "@synapse/web",
+        "exec",
+        "vite",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "5180",
+        "--strictPort"
+      ],
+      "port": 5180,
+      "url": "http://127.0.0.1:5180"
+    }
+  ]
+}

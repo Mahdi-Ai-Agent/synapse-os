@@ -1,0 +1,45 @@
+name: Bug report · گزارش باگ
+description: Something does not work as it should. · چیزی درست کار نمی‌کند.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Never paste your vault, API keys, tokens or sign-in codes here. Reproduce with the sample vault (`pnpm vault:seed`) if you can.
+        محتوای vault، کلید API، توکن یا کد ورود را اینجا نگذارید. اگر می‌شود، با داده‌ی نمونه (`pnpm vault:seed`) تکرارش کنید.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? · چه اتفاقی افتاد؟
+      description: What you did, what you expected, and what happened instead. Screenshots help.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce · مراحل تکرار
+      placeholder: "1. …\n2. …\n3. …"
+    validations:
+      required: true
+  - type: dropdown
+    id: how
+    attributes:
+      label: How do you run Synapse? · سیناپس را چطور اجرا می‌کنید؟
+      options: [Mac app, Docker / server, From source (pnpm dev / start), Other]
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Brain engine · موتور مغز
+      options: [Claude Code CLI, Codex CLI, Anthropic API, OpenAI API, OpenRouter, Not related to the brain]
+  - type: input
+    id: version
+    attributes:
+      label: Version and OS · نسخه و سیستم‌عامل
+      placeholder: "0.3.1, macOS 15.4 (Apple silicon), Chrome 140"
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Settings → Diagnostics (optional) · تنظیمات ← عیب‌یابی
+      render: text

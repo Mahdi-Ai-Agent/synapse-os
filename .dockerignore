@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+dist
+**/dist
+.git
+agent-creator
+.env
+.env.local
+eval/last-run.json
+coverage
+# The Mac app (Electron) is built on a Mac, never in the image.
+apps/desktop
+*.log
+.DS_Store
+.claude/settings.local.json

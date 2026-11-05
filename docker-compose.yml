@@ -1,0 +1,16 @@
+# Synapse on plain Docker (docs/DEPLOY.md): one container, the vault in a volume.
+# SYNAPSE_PAIR_TOKEN and CLAUDE_CODE_OAUTH_TOKEN come from your shell or a .env file next to this one.
+services:
+  synapse:
+    build: .
+    ports:
+      - "4317:4317"
+    volumes:
+      - synapse-data:/data
+    environment:
+      SYNAPSE_PAIR_TOKEN: ${SYNAPSE_PAIR_TOKEN:?set SYNAPSE_PAIR_TOKEN to a long random value}
+      CLAUDE_CODE_OAUTH_TOKEN: ${CLAUDE_CODE_OAUTH_TOKEN:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    restart: unless-stopped
+volumes:
+  synapse-data:

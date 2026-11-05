@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- The Mac app's start page (docs/ARCHITECTURE.md "Desktop app"): the mark while the server starts, and what went
+     wrong with a retry when it cannot. Its words come from the main process in the owner's UI language. -->
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:">
+  <title>Synapse</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #0b0f17; color: #e6e9ef; font: 14px/1.7 -apple-system, BlinkMacSystemFont, "Vazirmatn", system-ui, sans-serif; }
+    body { display: flex; align-items: center; justify-content: center; user-select: none; }
+    .box { display: flex; flex-direction: column; align-items: center; gap: 18px; width: min(460px, 86vw); text-align: center; }
+    .mark { width: 92px; height: 92px; animation: breathe 1.8s ease-in-out infinite; }
+    .failed .mark { animation: none; opacity: .45; }
+    @keyframes breathe { 0%, 100% { opacity: .5; transform: scale(.96); } 50% { opacity: 1; transform: scale(1); } }
+    .text { color: #9aa3b2; }
+    .actions { display: flex; gap: 10px; }
+    button { font: inherit; font-size: 13px; border-radius: 9px; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.06); color: #e6e9ef; padding: 6px 14px; cursor: pointer; }
+    button.primary { background: #3d7bfd; border-color: #3d7bfd; }
+    @media (prefers-color-scheme: light) { html, body { background: #eef1f7; color: #1a2133; } button { color: #1a2133; border-color: rgba(24,32,60,.16); background: rgba(24,32,60,.05); } button.primary { color: #fff; } pre { background: rgba(24,32,60,.06); color: #5c6880; } }
+    pre { box-sizing: border-box; width: 100%; max-height: 180px; overflow: auto; margin: 0; padding: 10px 12px; border-radius: 8px; background: rgba(0,0,0,.35); color: #8c95a6; font: 11px/1.5 ui-monospace, Menlo, monospace; text-align: left; direction: ltr; white-space: pre-wrap; user-select: text; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <!--mark-->
+    <div class="text" id="text"></div>
+    <pre id="log" hidden></pre>
+    <div class="actions" id="actions" hidden>
+      <button class="primary" id="retry"></button>
+      <button id="open-log"></button>
+    </div>
+  </div>
+  <script>
+    const desktop = window.synapseDesktop;
+    const byId = (id) => document.getElementById(id);
+    function show(s) {
+      if (!s) return;
+      const root = document.documentElement;
+      root.lang = s.locale;
+      root.dir = s.locale === 'fa' ? 'rtl' : 'ltr';
+      const failed = s.phase === 'failed' || s.phase === 'port';
+      document.body.classList.toggle('failed', failed);
+      byId('text').textContent = s.phase === 'port' ? s.text.portTaken.replace('{port}', String(s.port)) : s.phase === 'failed' ? s.text.failed : s.text.starting;
+      byId('log').hidden = !s.failure;
+      byId('log').textContent = s.failure || '';
+      byId('actions').hidden = !failed;
+      byId('retry').textContent = s.text.retry;
+      byId('open-log').textContent = s.text.openLog;
+    }
+    byId('retry').addEventListener('click', () => desktop.retry());
+    byId('open-log').addEventListener('click', () => desktop.openLog());
+    desktop.onState(show);
+    desktop.state().then(show);
+  </script>
+</body>
+</html>

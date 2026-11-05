@@ -1,0 +1,21 @@
+name: Feature request · پیشنهاد
+description: An idea that would make Synapse better. · ایده‌ای برای بهتر شدن سیناپس.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would it solve? · چه مشکلی را حل می‌کند؟
+      description: Describe the situation in your own life or work, not only the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea · ایده‌ی شما
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered · راه‌های دیگری که بررسی کردید

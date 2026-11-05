@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas · پرسش و گفتگو
+    url: https://github.com/Mahdi-Ai-Agent/synapse-os/discussions
+    about: Ask, share how you use Synapse, or discuss an idea before opening an issue.
+  - name: Security report · گزارش امنیتی
+    url: https://github.com/Mahdi-Ai-Agent/synapse-os/security/advisories/new
+    about: Report a vulnerability privately.

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<title>Synapse — Unlock</title>
+<style>
+:root{color-scheme:dark;--bg:#090d15;--text:#edf1fa;--muted:#97a5bd;--faint:#6f809b;--card-a:#171e2be8;--card-b:#101620ef;--line:#ffffff12;--field:#090e185c;--field-line:#ffffff20;--accent:#99b5ff;--accent-soft:#88a7ff1c;--error:#f0b0b5;--glow-a:#1b294d66;--glow-b:#24204355;font-family:-apple-system,BlinkMacSystemFont,"Vazirmatn",system-ui,sans-serif;color:var(--text);background:var(--bg)}
+@media (prefers-color-scheme: light){:root{color-scheme:light;--bg:#f3f5fa;--text:#1b2233;--muted:#5d6a82;--faint:#7c879c;--card-a:#ffffffee;--card-b:#f8f9fdf2;--line:#1b22331a;--field:#ffffff;--field-line:#1b223326;--accent:#4a67d6;--accent-soft:#4a67d614;--error:#b8323f;--glow-a:#c9d6ff80;--glow-b:#e4dcff70}}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:40px 24px;background:radial-gradient(ellipse at 27% 12%,var(--glow-a),transparent 48%),radial-gradient(ellipse at 85% 90%,var(--glow-b),transparent 45%)}
+.shell{width:min(440px,100%)}.brand{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:28px;font-size:19px;font-weight:650;letter-spacing:-.4px}.brand-mark{width:29px;height:29px;color:var(--accent)}
+.card{padding:34px 34px 28px;text-align:center;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,var(--card-a),var(--card-b));box-shadow:0 28px 90px #0003}
+.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:99px;padding:4px 11px;color:var(--muted);font-size:11px}.badge svg{width:12px;height:12px}
+h1{font-size:27px;font-weight:650;letter-spacing:-.7px;margin:24px 0 7px}p{color:var(--muted);font-size:13px;line-height:1.9;margin:0}
+.touch-orbit{width:124px;height:124px;margin:30px auto 22px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,var(--accent-soft),transparent 72%);border:1px solid var(--line)}
+.fingerprint{width:83px;height:83px;padding:12px;border:1px solid var(--line);border-radius:25px;background:var(--accent-soft);color:var(--accent)}
+button{font:inherit;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.primary{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px 16px;border:0;border-radius:13px;background:linear-gradient(130deg,#567ff0,#6376db);color:white;font-size:14px;font-weight:600}.primary:hover{filter:brightness(1.09)}.primary svg{width:20px;height:20px}
+.hint{font-size:12px;margin:12px 0 17px;color:var(--faint)}.link{display:block;margin:10px auto 0;padding:6px 10px;background:transparent;border:0;color:var(--muted);font-size:12px}.link:hover{color:var(--text)}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 8px;margin-top:6px}.links .link{margin:0}
+form{text-align:start;margin-top:23px}label{display:block;font-size:12px;color:var(--muted);margin:13px 0 7px}input[type=password],input[type=text]{width:100%;padding:12px 14px;border:1px solid var(--field-line);border-radius:11px;background:var(--field);color:var(--text);font:inherit;font-size:15px;direction:ltr;text-align:start}form .primary{margin-top:20px}.check{display:flex;align-items:center;gap:8px;font-size:12px;margin:16px 0}.check input{accent-color:#6f8cf0}.setup-hint{margin-top:12px;font-size:11px}
+.status{min-height:23px;color:var(--accent);font-size:12px;margin-top:14px;line-height:1.8}.status.error{color:var(--error)}.foot{display:flex;justify-content:center;align-items:flex-start;gap:7px;margin:21px auto 0;color:var(--faint);font-size:11px;line-height:1.9;text-align:center;max-width:340px}.foot svg{width:14px;height:14px;flex:none;margin-top:3px}
+button:disabled,input:disabled{cursor:default;opacity:.6}.waiting .fingerprint{border-color:var(--accent)}
+[hidden]{display:none!important}@media(max-height:680px){body{padding:22px}.brand{margin-bottom:16px}.card{padding:25px}.touch-orbit{margin:20px auto}h1{margin-top:18px}}
+</style>
+</head>
+<body>
+<main class="shell">
+<div class="brand"><svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M7 8 16 4l9 6-2 13-11 5-7-9Z" stroke="currentColor" stroke-width="1.5"/><path d="m7 8 16 15M16 4l-4 24M5 19l20-9" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="15" r="4" fill="currentColor"/></svg><span data-copy="lockBrand">Synapse</span></div>
+<section class="card" aria-labelledby="title">
+<span class="badge"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 7 3v6c0 5-7 9-7 9s-7-4-7-9V6Z" stroke="currentColor" stroke-width="1.7"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7"/></svg><span data-copy="lockBadge"></span></span>
+<h1 id="title"></h1><p id="intro"></p>
+<div id="biometric" hidden>
+<div class="touch-orbit"><svg class="fingerprint" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 19C8 9 16 4 24 4s16 6 16 16v6M5 27v-6M12 27v-7a12 12 0 0 1 24 0v8c0 7-2 11-5 15M17 34c2-4 2-9 2-14a5 5 0 0 1 10 0v8c0 7-2 12-5 16M24 20v8c0 6-2 12-5 16M13 34c-1 4-3 7-5 9M34 35c-1 3-2 6-4 9M40 32c0 5-1 8-3 12M12 19v1M17 39l-2 5"/></svg></div>
+<button class="primary" id="touch"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 10a7 7 0 0 1 14 0v4M8 15v-5a4 4 0 0 1 8 0v5c0 3-1 5-2 7M12 10v5c0 3-1 5-2 7M5 14c0 4-1 6-2 8M19 18l-1 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span id="touchText" data-copy="touchAction"></span></button>
+<p class="hint" data-copy="touchHint"></p>
+<button class="link" id="passwordToggle" data-copy="passwordToggle"></button>
+</div>
+<form id="form" hidden>
+<div id="recoveryBox" hidden><label for="recovery" data-copy="recoveryLabel"></label><input id="recovery" type="text" autocomplete="off" spellcheck="false" maxlength="64" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"></div>
+<div id="passwordBox"><label for="password" id="passwordLabel"></label><input id="password" type="password" autocomplete="current-password" maxlength="1024"></div>
+<div id="nextBox" hidden><label for="next" data-copy="newPasswordLabel"></label><input id="next" type="password" autocomplete="new-password" maxlength="1024"></div>
+<div id="confirmBox" hidden><label for="confirm" data-copy="confirmLabel"></label><input id="confirm" type="password" autocomplete="new-password" maxlength="1024"><p class="setup-hint" data-copy="setupHint"></p></div>
+<label class="check" id="enrollBox"><input type="checkbox" id="enroll"><span data-copy="enrollLabel"></span></label>
+<button class="primary" id="submit" type="submit"></button>
+<div class="links" id="links">
+<button class="link" id="back" type="button" data-copy="passwordLess" hidden></button>
+<button class="link" id="forgot" type="button" data-copy="forgotLink"></button>
+<button class="link" id="change" type="button" data-copy="changeLink"></button>
+<button class="link" id="touchOff" type="button" data-copy="touchOffLink" hidden></button>
+<button class="link" id="toUnlock" type="button" data-copy="passwordAction" hidden></button>
+</div>
+</form>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+</section>
+<div class="foot"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span data-copy="lockFoot"></span></div>
+</main>
+<script>
+const $=id=>document.getElementById(id);const desktop=window.synapseDesktop;
+let state=null,setup=false,hasTouch=false,waiting=false,lastAutoRequest=0,copy={},mode='unlock';
+const ERRORS={password:'errorPassword',recovery:'errorRecovery','touch-id':'errorTouch','disk-busy':'errorDisk',missing:'errorMissing',storage:'errorStorage',migration:'errorMigration',wait:'errorWait'};
+function status(text,error=false){$('status').textContent=text||'';$('status').classList.toggle('error',error);}
+/** One form, several jobs: unlock with the password, first setup, recovery, password change, Touch ID off. */
+function setMode(next){
+ mode=next;const s=setup?'setup':mode;
+ $('title').textContent=copy[setup?'setupTitle':mode==='unlock'?'lockTitle':mode==='recover'?'forgotLink':mode==='change'?'changeLink':'touchOffLink'];
+ $('intro').textContent=copy[s==='setup'?'setupIntro':s==='recover'?'recoveryIntro':s==='change'?'changeIntro':s==='touch-off'?'touchOffIntro':hasTouch?'lockIntro':'passwordIntro'];
+ $('recoveryBox').hidden=s!=='recover';$('passwordBox').hidden=s==='recover';
+ $('passwordLabel').textContent=copy[s==='change'?'currentLabel':'passwordLabel'];
+ $('nextBox').hidden=!(s==='recover'||s==='change');$('confirmBox').hidden=!(s==='setup'||s==='recover'||s==='change');
+ $('enrollBox').hidden=!(s==='setup'||((s==='unlock'||s==='recover')&&!state.enrolled));
+ $('submit').textContent=copy[s==='setup'?'setupAction':s==='recover'?'recoverAction':s==='change'?'changeAction':s==='touch-off'?'touchOffAction':'passwordAction'];
+ $('password').autocomplete=s==='setup'?'new-password':'current-password';
+ $('links').hidden=setup;$('forgot').hidden=s!=='unlock';$('change').hidden=s!=='unlock';$('touchOff').hidden=s!=='unlock'||!state.enrolled;
+ $('toUnlock').hidden=s==='unlock';$('back').hidden=!hasTouch||s!=='unlock';
+}
+function showPassword(show){$('form').hidden=!show;$('biometric').hidden=show||!hasTouch;if(show){setMode(mode);(mode==='recover'?$('recovery'):$('password')).focus();}}
+function show(s){
+ if(!s)return;state=s;copy=s.text;setup=!s.configured;hasTouch=!!s.biometric;
+ document.documentElement.lang=s.locale;document.documentElement.dir=s.locale==='fa'?'rtl':'ltr';
+ document.querySelectorAll('[data-copy]').forEach(el=>{el.textContent=copy[el.dataset.copy]||'';});
+ setMode(mode);
+ if(s.passwordDue)status(copy.passwordDue);else if(s.touchUnavailable)status(copy.touchUnavailable);
+ if(!waiting&&$('form').hidden&&(!hasTouch||setup))showPassword(true);else if(!waiting&&hasTouch&&$('form').hidden)$('biometric').hidden=false;
+ if(s.autoTouchId&&hasTouch&&!setup&&s.autoRequestId!==lastAutoRequest){lastAutoRequest=s.autoRequestId;const attempt=()=>requestAnimationFrame(()=>requestAnimationFrame(()=>unlock({})));if(document.visibilityState==='visible')attempt();else document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')attempt();},{once:true});}
+}
+async function unlock(value){
+ if(waiting)return;waiting=true;document.body.classList.add('waiting');for(const b of document.querySelectorAll('button,input'))b.disabled=true;
+ const touch=value.password===undefined&&value.mode!=='recover';status(copy[setup?'setupWaiting':touch?'touchWaiting':'passwordWaiting']);
+ try{const r=await desktop.unlock(value);
+  if(r.ok&&r.done){status(copy[r.done==='change'?'changeDone':'touchOffDone']);setMode('unlock');if(r.done==='touch-off'){hasTouch=false;state.enrolled=false;setMode('unlock');}}
+  else if(!r.ok){status(copy[ERRORS[r.code]||'unlockFailed']||copy.unlockFailed,true);$('touchText').textContent=copy.touchRetry;}}
+ catch{status(copy.unlockFailed,true);$('touchText').textContent=copy.touchRetry;}
+ finally{waiting=false;document.body.classList.remove('waiting');for(const b of document.querySelectorAll('button,input'))b.disabled=false;for(const id of['password','next','confirm','recovery'])$(id).value='';}
+}
+$('passwordToggle').onclick=()=>showPassword(true);$('back').onclick=()=>showPassword(false);$('touch').onclick=()=>unlock({});
+$('forgot').onclick=()=>{setMode('recover');$('recovery').focus();};$('change').onclick=()=>{setMode('change');$('password').focus();};
+$('touchOff').onclick=()=>{setMode('touch-off');$('password').focus();};$('toUnlock').onclick=()=>{setMode('unlock');$('password').focus();};
+$('form').onsubmit=e=>{e.preventDefault();
+ const p=$('password').value,n=$('next').value,c=$('confirm').value,enroll=$('enroll').checked;
+ if(setup){if(p.length<12||p!==c){status(copy.passwordMismatch,true);return;}unlock({password:p,enroll});return;}
+ if(mode==='recover'||mode==='change'){if(n.length<12||n!==c){status(copy.passwordMismatch,true);return;}}
+ if(mode==='recover')unlock({mode,recovery:$('recovery').value,next:n,enroll});
+ else if(mode==='change')unlock({mode,password:p,next:n});
+ else if(mode==='touch-off')unlock({mode,password:p});
+ else unlock({password:p,enroll});};
+desktop.onState(show);desktop.state().then(show);
+</script>
+</body>
+</html>

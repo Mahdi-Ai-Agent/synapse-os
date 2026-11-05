@@ -1,0 +1,31 @@
+{
+  "name": "@synapse/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --clear-screen=false src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.1",
+    "@fastify/static": "^8.3.0",
+    "@fastify/websocket": "^11.3.4",
+    "@modelcontextprotocol/server": "2.4.0",
+    "@synapse/brain": "workspace:*",
+    "@synapse/core": "workspace:*",
+    "@synapse/vault-template": "workspace:*",
+    "chokidar": "^6.0.0",
+    "fastify": "^5.12.7",
+    "fflate": "0.8.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.4.0",
+    "@types/node": "^22",
+    "@types/ws": "^8.18.2",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3"
+  }
+}

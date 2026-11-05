@@ -1,0 +1,17 @@
+# Reference material from an earlier project — not part of Synapse
+agent-creator/
+
+node_modules/
+dist/
+build/
+coverage/
+.env
+.env.local
+*.log
+.DS_Store
+.claude/settings.local.json
+CLAUDE.local.md
+vault-dev/
+apps/desktop/stage/
+apps/desktop/release/
+eval/last-run.json

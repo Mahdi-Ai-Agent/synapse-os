@@ -1,0 +1,424 @@
+{
+  "_comment": "Trigger eval for the vault's skills. Run: pnpm eval:vault [case-id …] (needs a logged-in `claude`). Each prompt is natural language; the expected skill must fire via the Skill tool. `summary_changed` names a node whose frontmatter `summary` must differ after the run and still parse ({today} = the local date).",
+  "cases": [
+    {
+      "id": "capture-fa",
+      "prompt": "یادم بنداز فردا با دکتر رضایی تماس بگیرم و اینو هم نگه دار: ایده‌ی گراف زمان‌دار رو با علی مطرح کنم",
+      "expect": {
+        "skill": "capture",
+        "files_changed": true
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "capture-en",
+      "prompt": "Remember this: read the Rust book chapter 7 this weekend, and the meetup with Dr. Chen moved to Thursday.",
+      "expect": {
+        "skill": "capture",
+        "files_changed": true
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "ask-fa",
+      "prompt": "این هفته چی کارها دارم؟",
+      "expect": {
+        "skill": "ask",
+        "files_changed": false
+      },
+      "max_turns": 8
+    },
+    {
+      "id": "ask-en",
+      "prompt": "What do I know about Dr. Chen?",
+      "expect": {
+        "skill": "ask",
+        "files_changed": false
+      },
+      "max_turns": 8
+    },
+    {
+      "id": "link-fa",
+      "prompt": "لینک‌های یادداشت «Sleep routine» رو درست کن",
+      "expect": {
+        "skill": "link"
+      },
+      "max_turns": 10
+    },
+    {
+      "id": "daily-fa",
+      "prompt": "مرور روزانه‌م رو انجام بده",
+      "expect": {
+        "skill": "daily",
+        "files_changed": true
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "daily-en",
+      "prompt": "Run my daily review.",
+      "expect": {
+        "skill": "daily",
+        "files_changed": true
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "daily-summary-fa",
+      "prompt": "روزم رو شروع کن",
+      "expect": {
+        "skill": "daily",
+        "files_changed": true,
+        "summary_changed": "nodes/journal/{today}.md"
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "weekly-fa",
+      "prompt": "هفته رو مرور کن",
+      "expect": {
+        "skill": "weekly",
+        "files_changed": true
+      },
+      "max_turns": 16
+    },
+    {
+      "id": "weekly-en",
+      "prompt": "Do my weekly review.",
+      "expect": {
+        "skill": "weekly",
+        "files_changed": true
+      },
+      "max_turns": 16
+    },
+    {
+      "id": "chat-idea-fa",
+      "mode": "chat",
+      "prompt": "یه ایده به ذهنم رسید برای کارم: یه داشبورد کوچیک بسازم که هر صبح وضعیت پروژه‌هام رو خلاصه کنه",
+      "expect": {
+        "files_changed": true,
+        "categorized": true,
+        "created_types": [
+          "idea"
+        ]
+      },
+      "max_turns": 14
+    },
+    {
+      "id": "chat-new-category-fa",
+      "mode": "chat",
+      "prompt": "ماشینم رو باید ببرم سرویس: این هفته روغن موتور رو عوض کنم و لاستیک‌ها رو هم چک کنم",
+      "expect": {
+        "files_changed": true,
+        "categorized": true,
+        "new_area": true
+      },
+      "max_turns": 14
+    },
+    {
+      "id": "chat-url-fa",
+      "mode": "chat",
+      "prompt": "این آموزش رو پیدا کردم و می‌خوام بعداً یادش بگیرم: https://react.dev/learn/thinking-in-react",
+      "expect": {
+        "files_changed": true,
+        "categorized": true,
+        "created_types": [
+          "resource"
+        ]
+      },
+      "max_turns": 16
+    },
+    {
+      "id": "chat-question-fa",
+      "mode": "chat",
+      "prompt": "این هفته چه کارهایی دارم؟",
+      "expect": {
+        "files_changed": false
+      },
+      "max_turns": 10
+    },
+    {
+      "id": "kind-feeling-fa",
+      "mode": "chat",
+      "prompt": "دیروز با مامان سر برنامه‌ی سفر بحثمون شد و ناراحتم، ولی خیلی دوستش دارم",
+      "expect": {
+        "files_changed": true,
+        "created_types": [
+          "event"
+        ],
+        "absent_types": [
+          "task"
+        ]
+      },
+      "max_turns": 14
+    },
+    {
+      "id": "kind-goal-habit-fa",
+      "mode": "chat",
+      "prompt": "می‌خوام تا آخر سال ۱۲ تا کتاب بخونم؛ از امشب هر شب نیم ساعت کتاب می‌خونم",
+      "expect": {
+        "files_changed": true,
+        "categorized": true,
+        "created_types": [
+          "goal"
+        ],
+        "touched_types": [
+          "habit"
+        ]
+      },
+      "max_turns": 16
+    },
+    {
+      "id": "kind-checkin-fa",
+      "mode": "chat",
+      "prompt": "امروز مدیتیشن صبحگاهیم رو انجام دادم",
+      "expect": {
+        "files_changed": true,
+        "checkin": "مدیتیشن صبحگاهی"
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "kind-reel-fa",
+      "mode": "chat",
+      "prompt": "این ریلز آموزش فتوشاپ رو بعداً ببینم https://www.instagram.com/reel/C1a2b3c4d5e/",
+      "expect": {
+        "files_changed": true,
+        "categorized": true,
+        "created_types": [
+          "resource"
+        ],
+        "resource_kind": "reel"
+      },
+      "max_turns": 16
+    },
+    {
+      "id": "status-done-fa",
+      "mode": "chat",
+      "prompt": "فصل‌های ۴ تا ۶ کتاب Rust رو خوندم، اون کار تموم شد",
+      "expect": {
+        "files_changed": true,
+        "absent_types": [
+          "task"
+        ],
+        "node_state": {
+          "title": "Read Rust book chapters 4-6",
+          "status": "done"
+        }
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "goal-progress-fa",
+      "mode": "chat",
+      "prompt": "هدف پس‌انداز ۲۰٪ درآمدم الان حدود ۸۰ درصد پیش رفته",
+      "expect": {
+        "files_changed": true,
+        "absent_types": [
+          "goal",
+          "task"
+        ],
+        "node_state": {
+          "title": "پس‌انداز ۲۰٪ درآمد",
+          "fields": {
+            "progress": 80
+          }
+        }
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "asks-before-filing-fa",
+      "mode": "chat",
+      "prompt": "با سارا حرف زدم",
+      "expect": {
+        "files_changed": false,
+        "asks": true
+      },
+      "max_turns": 10
+    },
+    {
+      "id": "advise-fa",
+      "mode": "advise",
+      "prompt": "حس می‌کنم بین کار و یادگیری Rust تعادل ندارم؛ چی کار کنم؟",
+      "expect": {
+        "files_changed": false,
+        "skill": "advise"
+      },
+      "max_turns": 14
+    },
+    {
+      "id": "insight-fa",
+      "mode": "insight",
+      "prompt": "تحلیل من",
+      "expect": {
+        "files_changed": true,
+        "skill": "insight"
+      },
+      "max_turns": 18
+    },
+    {
+      "id": "place-fa",
+      "mode": "insight",
+      "prompt": "[[کار]] → memory/places/کار.md",
+      "display": "تحلیل کار",
+      "expect": {
+        "skill": "insight",
+        "files_changed": true,
+        "wrote": {
+          "memory/places/کار.md": [
+            "## In short",
+            "## Next steps"
+          ]
+        },
+        "reply_language": "fa",
+        "wrote_language": "fa"
+      },
+      "max_turns": 24
+    },
+    {
+      "id": "place-map-fa",
+      "mode": "insight",
+      "prompt": "[[پیج عکاسی]] → memory/places/پیج-عکاسی.md",
+      "display": "تحلیل پیج عکاسی",
+      "expect": {
+        "skill": "insight",
+        "files_changed": true,
+        "wrote": {
+          "memory/places/پیج-عکاسی.md": [
+            "## In short"
+          ]
+        },
+        "reply_language": "fa",
+        "wrote_language": "fa"
+      },
+      "max_turns": 24
+    },
+    {
+      "id": "make-fa",
+      "mode": "make",
+      "prompt": "یه پست کوتاه برای پیج عکاسی‌ام بنویس درباره‌ی دویدن صبح‌ها توی پارک ملت",
+      "expect": {
+        "files_changed": false,
+        "skill": "make"
+      },
+      "max_turns": 14
+    },
+    {
+      "id": "character-fa",
+      "mode": "character",
+      "prompt": "نقشه‌ی کاراکترم را بساز",
+      "expect": {
+        "files_changed": true,
+        "skill": "character",
+        "touched_types": [
+          "note"
+        ]
+      },
+      "max_turns": 30
+    },
+    {
+      "id": "split-spaces-fa",
+      "mode": "chat",
+      "prompt": "فهمیدم صبح‌ها مغزم خیلی بهتر کار می‌کنه؛ جلسه‌ی مرور سایت با علی رو بذار سه‌شنبه صبح",
+      "expect": {
+        "files_changed": true,
+        "created_types": [
+          "note"
+        ],
+        "created_in": {
+          "note": [
+            "ویژگی‌ها",
+            "ارزش‌ها",
+            "دغدغه‌ها",
+            "لحن"
+          ]
+        },
+        "touched_types": [
+          "task"
+        ]
+      },
+      "max_turns": 16
+    },
+    {
+      "id": "island-explicit-fa",
+      "mode": "chat",
+      "prompt": "برای کافه‌ای که دارم راه می‌اندازم یه جزیره‌ی جدا بساز و این‌ها رو توش بذار: تا آخر ماه منوی صبحانه رو نهایی کنم، با دو تا تأمین‌کننده‌ی قهوه حرف بزنم و یه باریستا استخدام کنم.",
+      "expect": {
+        "files_changed": true,
+        "created_types": [
+          "map",
+          "area",
+          "task"
+        ],
+        "in_new_map": [
+          "task"
+        ]
+      },
+      "max_turns": 22
+    },
+    {
+      "id": "island-ask-fa",
+      "mode": "chat",
+      "prompt": "دارم یه کسب‌وکار کوچیک فروش شمع دست‌ساز راه می‌ندازم؛ باید قالب‌ها رو سفارش بدم، برای پیجش یه اسم انتخاب کنم و قیمت‌گذاری رو دربیارم.",
+      "expect": {
+        "files_changed": false,
+        "asks": true,
+        "reply_includes_any": [
+          "جزیره",
+          "نقشه‌ی جدا",
+          "نقشه‌ی جدید"
+        ]
+      },
+      "max_turns": 12
+    },
+    {
+      "id": "island-not-needed-fa",
+      "mode": "chat",
+      "prompt": "می‌خوام گیتار یاد بگیرم؛ این هفته یه معلم گیتار پیدا کنم.",
+      "expect": {
+        "files_changed": true,
+        "created_types": [
+          "task"
+        ],
+        "absent_types": [
+          "map"
+        ]
+      },
+      "max_turns": 16
+    },
+    {
+      "id": "review-fa",
+      "prompt": "یه بازبینی کامل از همه‌چی بکن و اولویت‌هام رو به‌روز کن",
+      "expect": {
+        "skill": "review",
+        "files_changed": true,
+        "wrote": {
+          "memory/focus.md": [
+            "## Now",
+            "## This review"
+          ]
+        },
+        "reply_language": "fa",
+        "wrote_language": "fa"
+      },
+      "max_turns": 40
+    },
+    {
+      "id": "review-en",
+      "prompt": "Do a full review of everything and update my priorities.",
+      "expect": {
+        "skill": "review",
+        "files_changed": true,
+        "wrote": {
+          "memory/focus.md": [
+            "## Now",
+            "## This review"
+          ]
+        },
+        "reply_language": "en"
+      },
+      "max_turns": 40
+    }
+  ]
+}

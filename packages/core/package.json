@@ -1,0 +1,14 @@
+{
+  "name": "@synapse/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": { "types": "./src/index.ts", "default": "./src/index.ts" } },
+  "scripts": { "typecheck": "tsc -p tsconfig.json" },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "minisearch": "^7.2.0",
+    "ulid": "^3.0.2"
+  },
+  "devDependencies": { "@types/js-yaml": "^4.0.9", "@types/node": "^22", "typescript": "~5.9.3" }
+}
