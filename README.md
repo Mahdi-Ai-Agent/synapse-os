@@ -15,7 +15,7 @@ on the AI subscription you already pay for, drawn as a living map of your mind.
 ![Version](https://img.shields.io/badge/version-0.3.1-38bdf8)
 ![Node 22](https://img.shields.io/badge/node-22-5fa04e)
 ![Platforms](https://img.shields.io/badge/runs%20on-macOS%20·%20Linux%20·%20Docker%20·%20any%20browser-555)
-![Languages](https://img.shields.io/badge/UI-English%20·%20فارسی%20(RTL)-f59e0b)
+![Languages](https://img.shields.io/badge/UI-English%20·%20Persian%20(RTL)-f59e0b)
 
 [Get started](#get-started) · [How it works](#how-it-works) · [Features](#features) · [Privacy](#privacy-and-security) · [FAQ](#faq) · [Contributing](#contributing)
 

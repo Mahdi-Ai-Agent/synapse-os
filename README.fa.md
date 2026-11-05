@@ -22,7 +22,7 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-7c6cf2)](LICENSE)
 ![Version](https://img.shields.io/badge/version-0.3.1-38bdf8)
 ![Node 22](https://img.shields.io/badge/node-22-5fa04e)
-![Languages](https://img.shields.io/badge/UI-فارسی%20(RTL)%20·%20English-f59e0b)
+![Languages](https://img.shields.io/badge/UI-Persian%20(RTL)%20·%20English-f59e0b)
 
 <img src="docs/images/panel-fa-dark.jpg" alt="نقشه‌ی ذهن سیناپس با رابط فارسی: دسته‌ها به شکل ناحیه‌های درخشان و یک پروژه که در پنل کناری باز است" width="100%">
 
