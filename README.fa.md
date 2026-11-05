@@ -268,6 +268,6 @@ pnpm mac:dmg             # → apps/desktop/release/Synapse-<version>-arm64.dmg
 
 ## مجوز
 
-[MIT](LICENSE). ساخته‌شده بر پایه‌ی Node.js، Fastify، React، Vite، three.js، d3-force-3d، Tailwind CSS، Radix، TipTap، Motion، Electron و فونت‌های وزیرمتن، استعداد و Inter.
+سیناپس با مجوز [MIT](LICENSE) منتشر شده و بر پایه‌ی Node.js، Fastify، React، Vite، three.js، d3-force-3d، Tailwind CSS، Radix، TipTap، Motion، Electron و فونت‌های وزیرمتن، استعداد و Inter ساخته شده است.
 
 </div>
